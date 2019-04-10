@@ -1,0 +1,143 @@
+@charset "utf-8";
+
+html, body {
+    margin: 0; /*внешний отступ по умолчанию*/
+    padding: 0; /*внутренний отступ по умолчанию*/
+}
+
+body {
+    width: 100%; /*ширина боди на весь экран*/
+    font-family: Geometria, serif;
+    font-size: 1vw;
+    color: black;
+}
+
+img {
+    max-width: 100%;
+}
+
+.content {
+    width: 80%;
+    margin: 0 auto;
+}
+
+header {
+    margin: 5vw 0;
+    background: #FFFFFF;
+    border: 0.10vw solid #dbd7d2;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5vw 0;
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    text-align: left;
+}
+
+.header__logo p {
+    width: 83%;
+    margin-left: 4%;
+    font-size: 1vw;
+}
+
+.header__sign {
+    width: 12.3vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
+section {
+    border: 0.10vw solid #dbd7d2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section__menu {
+    margin: 1vw;
+    height: 50vh;
+    width: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.section__menu button {
+    border-radius: 30px;
+    padding: 1vw;
+    outline: none;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0.5vw;
+}
+
+.section__menu button:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    /*margin: 0.5vw;*/
+}
+
+
+.wrap-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+footer {
+    margin: 5vw 0;
+    background: #FFFFFF;
+    /*border: 0.10vw solid #dbd7d2;*/
+    /*box-sizing: border-box;*/
+    /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+}
+
+
+.footer__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5vw 0;
+}
+
+.footer__itc {
+    margin-right: 1.5vw;
+    padding: 1.9vw;
+    width: 49%;
+    border: 0.10vw solid #dbd7d2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.footer__itc p {
+   margin-left: 20%;
+}
+
+
+.footer__social {
+    padding: 1.9vw;
+    width: 45%;
+    border: 0.10vw solid #dbd7d2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.footer__social img {
+    float: right;
+    padding: 0.9vw;
+
+}
+.images {
+    margin-right: 10%;
+}

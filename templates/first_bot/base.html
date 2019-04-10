@@ -1,0 +1,55 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header>
+    <div class="content header">
+        <div class="header__logo">
+            <img src="../../static/images/header_logo.png" alt="">
+            <p>Отдел структурного программирования.</p>
+        </div>
+        <div class="header__sign">
+            {% if user.is_authenticated %}
+                <a href="#">Профиль</a>
+            {% else %}
+                <a href="accounts/signup/">Регистрация</a>
+                <a href="/accounts/login/">Вход</a>
+            {% endif %}
+        </div>
+    </div>
+</header>
+{% block content %}
+    <section>
+        <div class="content">
+            <div class="wrap-content">
+                <div class="section__menu">
+                    <button class="menu__item">Админка</button>
+                    <button class="menu__item">Управление</button>
+                    <button class="menu__item">Блок перехвата</button>
+                    <button class="menu__item">Управление</button>
+                    <button class="menu__item">Блок перехвата</button>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+<footer>
+    <div class="footer__menu">
+        <div class="footer__itc">
+            <p>@ИТЦ 2019</p>
+        </div>
+        <div class="footer__social">
+            <div class="images">
+                <img src="../../static/images/fb_red.png" alt="">
+                <img src="../../static/images/vk_red.png" alt="">
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
