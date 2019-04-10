@@ -30,6 +30,7 @@ header {
 }
 
 .header {
+    height: 55px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -37,13 +38,15 @@ header {
 }
 
 .header__logo {
+    width: 3vw;
+    height: 42px;
     display: flex;
     align-items: center;
-    width: 30%;
+    /*width: 30%;*/
     text-align: left;
 }
 
-.header__logo p {
+.p {
     width: 83%;
     margin-left: 4%;
     font-size: 1vw;
@@ -122,12 +125,12 @@ footer {
 }
 
 .footer__itc p {
-   margin-left: 20%;
+    margin-left: 20%;
 }
 
 
 .footer__social {
-    padding: 1.9vw;
+    padding: 1.8vw;
     width: 45%;
     border: 0.10vw solid #dbd7d2;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -138,6 +141,7 @@ footer {
     padding: 0.9vw;
 
 }
+
 .images {
     margin-right: 10%;
 }
