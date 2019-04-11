@@ -1,7 +1,9 @@
-from django.http import HttpResponseRedirect
+from django.contrib import messages
+from django.http import HttpResponseRedirect, Http404
+from django.urls import reverse
 from first_bot.models import *
-from django.shortcuts import render
-from django.views.generic import View, ListView, FormView
+from django.shortcuts import render, get_object_or_404
+from django.views.generic import View, FormView, DetailView, ListView
 from django.views.generic.edit import UpdateView, CreateView
 from first_bot.forms import ProfileForm, NewsForm
 
@@ -12,11 +14,16 @@ class General(View):
         return render(request, 'first_bot/general.html')
 
 
-class Profile(ListView):
+class ProfileView(DetailView):
     template_name = 'first_bot/profile.html'
+    context_object_name = 'profile'
+    model = Profile
 
-    def get_queryset(self):
-        return Profile.objects.filter(user=self.request.user)
+    def get_object(self, queryset=None):
+        obj = get_object_or_404(Profile, user=self.request.user)
+        if obj.user != self.request.user:
+            raise Http404
+        return obj
 
 
 class NewsSave(CreateView, FormView):
@@ -29,6 +36,30 @@ class NewsSave(CreateView, FormView):
 
 
 class EditProfile(UpdateView):
+    form_class = ProfileForm
     model = Profile
     template_name = 'first_bot/editprofile.html'
-    form_class = ProfileForm
+
+    def get_object(self, queryset=None):
+        return self.request.user.profile
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Profile has been updated!')
+        return super().form_valid(form)
+
+
+# class NewsView(View):
+#     def get(self, request, ):
+#         news = News.objects.all()
+#         news2 = News2.objects.all()
+#         b = news2.negative
+#         c = news2.neutral
+#
+#         context = {
+#             'news': news,
+#             'news2': news2,
+#             'positive': a,
+#             'negative': b,
+#             'neutral': c,
+#         }
+#         return render(request, 'first_bot/news.html', context)

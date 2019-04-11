@@ -26,6 +26,7 @@ class Profile(models.Model):
     address = models.CharField('Адрес', max_length=300)
     about = models.TextField('Биография')
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    slug = models.SlugField(blank=True, null=True)
 
     def __str__(self):
         return '{}'.format(self.name)
@@ -72,11 +73,11 @@ class Mistake(models.Model):
 
 class News(models.Model):
     ACTION = (
-        ('1', 'положительный'),
-        ('2', 'отрицательный'),
-        ('3', 'нейтральный'),
+        ('1', 'положительная'),
+        ('2', 'отрицательная'),
+        ('3', 'нейтаральная'),
     )
-    name = models.CharField(choices=ACTION, max_length=1000)
+    name = models.CharField(choices=ACTION, max_length=1, default='1')
     urls = models.CharField('Ссылки', max_length=1000)
     data = models.DateField('Дата')
     key = models.CharField(max_length=300)
@@ -87,3 +88,12 @@ class News(models.Model):
     class Meta:
         verbose_name = 'Новость'
         verbose_name_plural = 'Новости'
+
+
+class News2(models.Model):
+    positive = models.IntegerField()
+    negative = models.IntegerField()
+    neutral = models.IntegerField()
+
+
+

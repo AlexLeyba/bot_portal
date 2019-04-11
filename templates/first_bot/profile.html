@@ -1,4 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-    <button class="menu__item">Редактировать профиль</button>
+        {{ profile.name }}<br>
+        {{ profile.phone }}<br>
+        {{ profile.address }}<br>
+        {{ profile.about }}<br>
+    <a href="{% url 'edit' %}">Редактировать профиль.</a>
 {% endblock %}
