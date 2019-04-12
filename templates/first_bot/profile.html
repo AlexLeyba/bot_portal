@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-        {{ profile.name }}<br>
-        {{ profile.phone }}<br>
-        {{ profile.address }}<br>
-        {{ profile.about }}<br>
-    <a href="{% url 'edit' %}">Редактировать профиль.</a>
+    {{ profile.name }}<br>
+    {{ profile.phone }}<br>
+    {{ profile.address }}<br>
+    {{ profile.about }}<br>
+    <div class="section__menu">
+        <a href="{% url 'edit' pk=profile.user.id %}">Редактировать профиль.</a>
+    </div>
 {% endblock %}

@@ -1,8 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
-    <article>
+    <div>
+        <article>
+            <p>Позитивных: {{ positive }}</p>
+            <p>Негативных: {{ negative }}</p>
+            <p>Нейтральных: {{ neutral }}</p>
+        </article>
+    </div>
 
-    </article>
-
+    <div class="news">
+        {% for new in news %}
+            <div class="one">
+                <p>{{ new.types }}</p>
+                <p>{{ new.data }}</p>
+                <p>{{ new.urls }}</p>
+            </div>
+        {% endfor %}
+        <div class="section__menu">
+            <a class="menu__item" href="{% url 'sendnews' %}">Добавить новость</a>
+            <a class="menu__item" href="{% url 'sendnews2' %}">Добавить новость 2</a>
+        </div>
+    </div>
 
 {% endblock %}

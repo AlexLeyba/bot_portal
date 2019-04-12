@@ -1,5 +1,5 @@
 from django import forms
-from .models import Profile, News
+from .models import Profile, News, News2
 
 
 class ProfileForm(forms.ModelForm):
@@ -11,7 +11,10 @@ class ProfileForm(forms.ModelForm):
 class NewsForm(forms.ModelForm):
     class Meta:
         model = News
-        fields = ('name', 'urls', 'data', 'key')
+        fields = ('types', 'urls', 'data', 'key')
 
 
-
+class News2Form(forms.ModelForm):
+    class Meta:
+        model = News2
+        fields = ('positive', 'negative', 'neutral')

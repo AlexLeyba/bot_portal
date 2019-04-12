@@ -72,28 +72,27 @@ class Mistake(models.Model):
 
 
 class News(models.Model):
-    ACTION = (
-        ('1', 'положительная'),
-        ('2', 'отрицательная'),
-        ('3', 'нейтаральная'),
-    )
-    name = models.CharField(choices=ACTION, max_length=1, default='1')
+    types = models.CharField(max_length=1000)
     urls = models.CharField('Ссылки', max_length=1000)
     data = models.DateField('Дата')
     key = models.CharField(max_length=300)
 
     def __str__(self):
-        return '{}'.format(self.name)
+        return '{}'.format(self.data)
 
     class Meta:
         verbose_name = 'Новость'
         verbose_name_plural = 'Новости'
 
 
+# class News2(models.Model):
+#     """Пока не рабочая реализация #2"""
+#     positive = models.CharField(max_length=300, blank=True, null=True)
+#     negative = models.CharField(max_length=300, blank=True, null=True)
+#     neutral = models.CharField(max_length=300, blank=True, null=True)
+
 class News2(models.Model):
-    positive = models.IntegerField()
-    negative = models.IntegerField()
-    neutral = models.IntegerField()
-
-
-
+    """Рбочая реализация #1"""
+    positive = models.IntegerField('1 = позитвная', blank=True, null=True)
+    negative = models.IntegerField('2 = негативная', blank=True, null=True)
+    neutral = models.IntegerField('3 = нейтрпльная', blank=True, null=True)

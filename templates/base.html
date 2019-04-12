@@ -10,14 +10,14 @@
 <header>
     <div class="content header">
         <div class="header__logo">
-            <img src="../../static/images/header_logo.png" alt="">
+            <a href="/"><img src="../../static/images/header_logo.png" alt=""></a>
         </div>
         <div class="p">
             <p>Отдел структурного программирования.</p>
         </div>
         <div class="header__sign">
             {% if user.is_authenticated %}
-                <a href="{% url 'profiles' %}">Профиль</a>
+                <a href="{% url 'profiles'%}">Профиль</a>
             {% else %}
                 <a href="accounts/signup/">Регистрация</a>
                 <a href="/accounts/login/">Вход</a>
@@ -30,11 +30,11 @@
         <div class="content">
             <div class="wrap-content">
                 <div class="section__menu">
-                    <button class="menu__item">Админка</button>
-                    <button class="menu__item">Управление</button>
-                    <button class="menu__item">Блок перехвата</button>
-                    <button class="menu__item">Управление</button>
-                    <button class="menu__item">Блок перехвата</button>
+                    <a class="menu__item" href="admin/">Админка</a>
+                    <a class="menu__item" href="{% url 'news' %}">Новости</a>
+                    <a class="menu__item">Блок перехвата</a>
+                    <a class="menu__item">Управление</a>
+                    <a class="menu__item">Блок перехвата</a>
                 </div>
             </div>
         </div>
