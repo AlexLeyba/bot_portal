@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.urls import reverse
 
 
 class Bot(models.Model):
@@ -28,18 +29,15 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     slug = models.SlugField(blank=True, null=True)
 
+    def get_absolute_url(self):
+        return reverse('profiles')
+
     def __str__(self):
         return '{}'.format(self.name)
 
     class Meta:
         verbose_name = 'Профиль'
         verbose_name_plural = 'Профили'
-
-
-@receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
-    if created:
-        Profile.objects.create(user=instance, id=instance.id)
 
 
 class Stars(models.Model):
@@ -85,14 +83,14 @@ class News(models.Model):
         verbose_name_plural = 'Новости'
 
 
-# class News2(models.Model):
-#     """Пока не рабочая реализация #2"""
-#     positive = models.CharField(max_length=300, blank=True, null=True)
-#     negative = models.CharField(max_length=300, blank=True, null=True)
-#     neutral = models.CharField(max_length=300, blank=True, null=True)
-
 class News2(models.Model):
     """Рбочая реализация #1"""
-    positive = models.IntegerField('1 = позитвная', blank=True, null=True)
-    negative = models.IntegerField('2 = негативная', blank=True, null=True)
-    neutral = models.IntegerField('3 = нейтрпльная', blank=True, null=True)
+    positive = models.IntegerField('позитвная', blank=True, null=True, default=0)
+    negative = models.IntegerField('негативная', blank=True, null=True, default=0)
+    neutral = models.IntegerField('нейтральная', blank=True, null=True, default=0)
+
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance, id=instance.id)

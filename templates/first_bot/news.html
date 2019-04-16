@@ -15,11 +15,6 @@
                 <p>{{ new.data }}</p>
                 <p>{{ new.urls }}</p>
             </div>
+            </div>
         {% endfor %}
-        <div class="section__menu">
-            <a class="menu__item" href="{% url 'sendnews' %}">Добавить новость</a>
-            <a class="menu__item" href="{% url 'sendnews2' %}">Добавить новость 2</a>
-        </div>
-    </div>
-
 {% endblock %}

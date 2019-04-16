@@ -5,6 +5,6 @@
     {{ profile.address }}<br>
     {{ profile.about }}<br>
     <div class="section__menu">
-        <a href="{% url 'edit' pk=profile.user.id %}">Редактировать профиль.</a>
+        <a href="{% url 'edit' pk=profile.id %}">Редактировать профиль.</a>
     </div>
 {% endblock %}

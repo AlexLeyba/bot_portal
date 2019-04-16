@@ -1,10 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
-    <form action="" method="post">
-        {% csrf_token %}
-        <table>
-            {{ form }}
-        </table>
-        <input type="submit" value="Submit"/>
-    </form>
+    <div class="container">
+        <form method="POST" id="signup" action="#">
+            <div class="header">
+                <h3>Панель СМИ 1</h3>
+            </div>
+            {% csrf_token %}
+            <p>
+            <td>{{ form.positive }}
+                <button type="button" onclick="incrementValue()" class="pl">Плюс</button>
+            </td>
+
+            <p>
+            <td>{{ form.negative }}
+                <button type="button" onclick="incrementValue1()" class="ml">Минус</button>
+            </td>
+            <p>
+            <td>{{ form.neutral }}
+                <button type="button" onclick="incrementValue2()" class="nl">Нейтрально</button>
+            </td>
+            <br>
+            <input type="submit" class="submit_button" value="Сохранить" class='formout'>
+        </form>
+    </div>
 {% endblock %}

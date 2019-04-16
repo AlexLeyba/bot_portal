@@ -1,9 +1,6 @@
-from django.contrib import messages
-from django.http import HttpResponseRedirect, Http404
-from django.urls import reverse
 from first_bot.models import *
-from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import View, FormView, DetailView, ListView
+from django.shortcuts import render, redirect
+from django.views.generic import View
 from django.views.generic.edit import UpdateView, CreateView
 from first_bot.forms import ProfileForm, NewsForm, News2Form
 
@@ -14,16 +11,14 @@ class General(View):
         return render(request, 'first_bot/general.html')
 
 
-class ProfileView(DetailView):
-    template_name = 'first_bot/profile.html'
-    context_object_name = 'profile'
-    model = Profile
-
-    def get_object(self, queryset=None):
-        obj = get_object_or_404(Profile, user=self.request.user)
-        if obj.user != self.request.user:
-            raise Http404
-        return obj
+class ProfileView(View):
+    @staticmethod
+    def get(request):
+        profile = Profile.objects.get(user=request.user)
+        context = {
+            'profile': profile,
+        }
+        return render(request, "first_bot/profile.html", context)
 
 
 class NewsSave(CreateView):
@@ -58,42 +53,9 @@ class NewsSave2(CreateView):
 
 class EditProfile(UpdateView):
     model = Profile
-    template_name = 'first_bot/editProfile.html'
+    template_name = 'first_bot/editprofile.html'
     form_class = ProfileForm
 
-
-# class EditProfile(UpdateView):
-#     form_class = ProfileForm
-#     model = Profile
-#     template_name = 'first_bot/editprofile.html'
-#
-#     def get_object(self, queryset=None):
-#         return self.request.user.profile
-#
-#     def form_valid(self, form):
-#         messages.success(self.request, 'Profile has been updated!')
-#         return super().form_valid(form)
-#
-#     @staticmethod
-#     def success_url():
-#         return redirect('/profile/')
-
-
-# class NewsView(View):
-#     """Пока не рабочий вариант"""
-#     def get(self, request):
-#         news = News.objects.all()
-#         positive = News2.objects.values_list('positive').count()
-#         negative = News2.objects.values_list('negative').count()
-#         neutral = News2.objects.values_list('neutral').count()
-#         context = {
-#             'news': news,
-#             'positive': positive,
-#             'negative': negative,
-#             'neutral': neutral,
-#         }
-#         return render(request, 'first_bot/news.html', context)
-#
 
 class NewsView(View):
     """Рабочая реализация №1"""
@@ -112,3 +74,4 @@ class NewsView(View):
             'neutral': neutral,
         }
         return render(request, 'first_bot/news.html', context)
+
