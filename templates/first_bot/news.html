@@ -2,9 +2,11 @@
 {% block content %}
     <div>
         <article>
-            <p>Позитивных: {{ positive }}</p>
-            <p>Негативных: {{ negative }}</p>
-            <p>Нейтральных: {{ neutral }}</p>
+            {% for i in news2 %}
+                <p>Позитивных: {{ i.positive }}</p>
+                <p>Негативных: {{ i.negative }}</p>
+                <p>Нейтарльных: {{ i.neutral }}</p>
+            {% endfor %}
         </article>
     </div>
 

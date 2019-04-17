@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from first_bot.models import *
 from django.shortcuts import render, redirect
 from django.views.generic import View
@@ -36,19 +37,25 @@ class NewsSave(CreateView):
         return redirect('/news/')
 
 
-class NewsSave2(CreateView):
-    template_name = 'first_bot/newsform2.html'
-    model = News2
-    form_class = News2Form
-
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        form.save()
-        return redirect('/news/')
+class NewsSave2(View):
+    @staticmethod
+    def get(request):
+        form = News2Form
+        context = {
+            'form': form
+        }
+        return render(request, 'first_bot/newsform2.html', context)
 
     @staticmethod
-    def success_url():
-        return redirect('/news/')
+    def post(request):
+        form = News2Form(request.POST)
+        news = News2.objects.get(id=70)  # вот тут при деплое или клоне проекта на чистой бд ставить id=1
+        if form.is_valid():
+            news.positive += int(request.POST.get('positive'))
+            news.negative += int(request.POST.get('negative'))
+            news.neutral += int(request.POST.get('neutral'))
+            news.save()
+            return HttpResponseRedirect('/news/')
 
 
 class EditProfile(UpdateView):
@@ -63,15 +70,9 @@ class NewsView(View):
     @staticmethod
     def get(request):
         news = News.objects.all()
-        positive = News2.objects.filter(positive=1).count()
-        negative = News2.objects.filter(negative=2).count()
-        neutral = News2.objects.filter(neutral=3).count()
-
+        news2 = News2.objects.all()
         context = {
             'news': news,
-            'positive': positive,
-            'negative': negative,
-            'neutral': neutral,
+            'news2': news2
         }
         return render(request, 'first_bot/news.html', context)
-

@@ -23,11 +23,11 @@ class Bot(models.Model):
 
 class Profile(models.Model):
     name = models.CharField('ФИО', max_length=300)
+    photo = models.ImageField('Фото профиля', upload_to="images/", blank=True)
     phone = models.IntegerField('Телефон', default=0)
     address = models.CharField('Адрес', max_length=300)
     about = models.TextField('Биография')
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    slug = models.SlugField(blank=True, null=True)
 
     def get_absolute_url(self):
         return reverse('profiles')

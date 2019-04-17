@@ -22,7 +22,7 @@ img {
 }
 
 header {
-    margin: 5vw 0;
+    margin: 2vw 0;
     background: #FFFFFF;
     border: 0.10vw solid #dbd7d2;
     box-sizing: border-box;
@@ -30,7 +30,7 @@ header {
 }
 
 .header {
-    height: 55px;
+    height: 38px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -64,6 +64,7 @@ a {
 }
 
 section {
+    height: 70vh;
     border: 0.10vw solid #dbd7d2;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -102,7 +103,7 @@ section {
 }
 
 footer {
-    margin: 5vw 0;
+    margin: 2vw 0;
     background: #FFFFFF;
     /*border: 0.10vw solid #dbd7d2;*/
     /*box-sizing: border-box;*/
@@ -111,6 +112,7 @@ footer {
 
 
 .footer__menu {
+    height: 38px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -119,8 +121,8 @@ footer {
 
 .footer__itc {
     margin-right: 1.5vw;
-    padding: 1.9vw;
-    width: 49%;
+    padding: 0.9vw 1vw;
+    width: 48%;
     border: 0.10vw solid #dbd7d2;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -131,8 +133,8 @@ footer {
 
 
 .footer__social {
-    padding: 1.8vw;
-    width: 45%;
+    padding: 0.9vw 1vw;
+    width: 48%;
     border: 0.10vw solid #dbd7d2;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

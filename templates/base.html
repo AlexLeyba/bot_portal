@@ -26,8 +26,8 @@
         </div>
     </div>
 </header>
-{% block content %}
-    <section>
+<section>
+    {% block content %}
         <div class="content">
             <div class="wrap-content">
                 <div class="section__menu">
@@ -39,8 +39,9 @@
                 </div>
             </div>
         </div>
-    </section>
-{% endblock %}
+    {% endblock %}
+</section>
+
 <footer>
     <div class="footer__menu">
         <div class="footer__itc">
