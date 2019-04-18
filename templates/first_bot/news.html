@@ -1,22 +1,28 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div>
-        <article>
-            {% for i in news2 %}
-                <p>Позитивных: {{ i.positive }}</p>
-                <p>Негативных: {{ i.negative }}</p>
-                <p>Нейтарльных: {{ i.neutral }}</p>
+    <div class="content">
+        <div class="content.news2">
+            <div class="h4">
+                <p>Сборка статей</p>
+            </div>
+            <div class="content_result">
+                {% for i in news2 %}
+                    <ul class="ul_news">
+                        <li class="green">Позитивных: {{ i.positive }}</li>
+                        <li class="red">Негативных: {{ i.negative }}</li>
+                        <li class="black">Нейтральных: {{ i.neutral }}</li>
+                    </ul>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="content_news1">
+            {% for new in news %}
+                <div class="news">
+                    <p>{{ new.types }}<span>{{ new.data }}</span></p>
+                    <p>{{ new.urls }}</p>
+                </div>
             {% endfor %}
-        </article>
-    </div>
+        </div>
 
-    <div class="news">
-        {% for new in news %}
-            <div class="one">
-                <p>{{ new.types }}</p>
-                <p>{{ new.data }}</p>
-                <p>{{ new.urls }}</p>
-            </div>
-            </div>
-        {% endfor %}
+    </div>
 {% endblock %}
