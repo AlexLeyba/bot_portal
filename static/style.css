@@ -1,5 +1,17 @@
 @charset "utf-8";
 
+/*------fonts-----*/
+@font-face {
+    font-family: 'Geometria';
+    src: url('fonts/Geometria.eot');
+    src: url('fonts/Geometria.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Geometria.woff') format('woff'),
+    url('fonts/Geometria.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+/*******/
+
 html, body {
     margin: 0; /*внешний отступ по умолчанию*/
     padding: 0; /*внутренний отступ по умолчанию*/
@@ -78,6 +90,7 @@ section {
 }
 
 .section__menu a {
+    width: 17.5vw;
     border-radius: 30px;
     padding: 1vw;
     outline: none;
@@ -96,6 +109,7 @@ section {
 
 
 .wrap-content {
+    margin-top: 6vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -104,9 +118,9 @@ section {
 footer {
     margin: 2vw 0;
     background: #FFFFFF;
-    /*border: 0.10vw solid #dbd7d2;*/
-    /*box-sizing: border-box;*/
-    /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+    border: 0.10vw solid #dbd7d2;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -122,8 +136,8 @@ footer {
     margin-right: 1.5vw;
     padding: 0.9vw 1vw;
     width: 48%;
-    border: 0.10vw solid #dbd7d2;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /*border: 0.10vw solid #dbd7d2;*/
+    /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
 }
 
 .footer__itc p {
@@ -134,8 +148,8 @@ footer {
 .footer__social {
     padding: 0.9vw 1vw;
     width: 48%;
-    border: 0.10vw solid #dbd7d2;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /*border: 0.10vw solid #dbd7d2;*/
+    /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
 }
 
 .footer__social img {
@@ -218,14 +232,69 @@ footer {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
 }
+
 .news p {
     margin: 1vw 2vw;
 }
 
-.news p>span {
+.news p > span {
     float: right;
 }
 
 .news img {
     float: right;
+}
+
+.signup_form h1 {
+    font-weight: 300;
+    font-family: Geometria, serif;
+    font-size: 16px;
+    line-height: normal;
+    text-align: center;
+
+    color: #000000;
+}
+
+
+.signup_form {
+    padding-top: 2vw;
+    margin: 1vw auto 0 auto;
+    width: 50vw;
+    height: 70vh;
+    background: #FFFFFF;
+    border: 0 solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.signup_form button {
+    width: 17.5vw;
+    display: block;
+    border-radius: 30px;
+    padding: 1vw;
+    outline: none;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 5vh auto 0 auto;
+    text-align: center;
+}
+
+input {
+    padding-left: 1.5vw;
+    width: 31.4vw;
+    height: 5.8vh;
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.signup p {
+    padding-top: 4vh;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
 }

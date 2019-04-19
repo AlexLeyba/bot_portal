@@ -48,6 +48,7 @@ class NewsSave2(View):
 
     @staticmethod
     def post(request):
+        """переделать так что бы каждый раз создавался новый объект модели"""
         form = News2Form(request.POST)
         news = News2.objects.get(id=70)  # вот тут при деплое или клоне проекта на чистой бд ставить id=1
         if form.is_valid():

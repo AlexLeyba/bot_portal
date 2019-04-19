@@ -26,7 +26,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -36,10 +35,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'first_bot',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'first_bot',
+
 ]
 
 MIDDLEWARE = [
