@@ -23,6 +23,20 @@
                 </div>
             {% endfor %}
         </div>
-
+        <div class="pagination">
+    <span class="step-links">
+        {% if news.has_previous %}
+            <a href="?page=1">❮</a>
+            {#            <a href="?page={{ news.previous_page_number }}">в начало</a>#}
+        {% endif %}
+{#        <span class="current">#}
+{#            Страница {{ news.number }} из {{ news.paginator.num_pages }}.#}
+{#        </span>#}
+        {% if news.has_next %}
+            <a href="?page={{ news.next_page_number }}">❯</a>
+            {#            <a href="?page={{ news.paginator.num_pages }}">последняя &raquo;</a>#}
+        {% endif %}
+    </span>
+        </div>
     </div>
 {% endblock %}

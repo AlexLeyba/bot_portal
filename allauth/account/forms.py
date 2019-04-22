@@ -37,13 +37,13 @@ class EmailAwarePasswordResetTokenGenerator(PasswordResetTokenGenerator):
     def _make_hash_value(self, user, timestamp):
         ret = super(
             EmailAwarePasswordResetTokenGenerator, self)._make_hash_value(
-                user, timestamp)
+            user, timestamp)
         sync_user_email_addresses(user)
         emails = set([user.email])
         emails.update(
             EmailAddress.objects
-            .filter(user=user)
-            .values_list('email', flat=True))
+                .filter(user=user)
+                .values_list('email', flat=True))
         ret += '|'.join(sorted(emails))
         return ret
 
@@ -69,7 +69,7 @@ class PasswordField(forms.CharField):
         render_value = kwargs.pop('render_value',
                                   app_settings.PASSWORD_INPUT_RENDER_VALUE)
         kwargs['widget'] = forms.PasswordInput(render_value=render_value,
-                                               attrs={'placeholder':"Пароль"})
+                                               attrs={'placeholder': "Пароль"})
         super(PasswordField, self).__init__(*args, **kwargs)
 
 
@@ -86,21 +86,20 @@ class SetPasswordField(PasswordField):
 
 
 class LoginForm(forms.Form):
-
-    password = PasswordField(label=_("Password"))
+    password = PasswordField(label=_(""))
     remember = forms.BooleanField(label=_("Remember Me"),
                                   required=False)
 
     user = None
     error_messages = {
         'account_inactive':
-        _("This account is currently inactive."),
+            _("This account is currently inactive."),
 
         'email_password_mismatch':
-        _("The e-mail address and/or password you specified are not correct."),
+            _("The e-mail address and/or password you specified are not correct."),
 
         'username_password_mismatch':
-        _("The username and/or password you specified are not correct."),
+            _("The username and/or password you specified are not correct."),
     }
 
     def __init__(self, *args, **kwargs):
@@ -109,24 +108,24 @@ class LoginForm(forms.Form):
         if app_settings.AUTHENTICATION_METHOD == AuthenticationMethod.EMAIL:
             login_widget = forms.TextInput(attrs={'type': 'email',
                                                   'placeholder':
-                                                  _('E-mail address'),
+                                                      _('E-mail address'),
                                                   'autofocus': 'autofocus'})
             login_field = forms.EmailField(label=_("E-mail"),
                                            widget=login_widget)
         elif app_settings.AUTHENTICATION_METHOD \
                 == AuthenticationMethod.USERNAME:
             login_widget = forms.TextInput(attrs={'placeholder':
-                                                  _('Username'),
+                                                      _('Username'),
                                                   'autofocus': 'autofocus'})
             login_field = forms.CharField(
-                label=_("Username"),
+                label=_(""),
                 widget=login_widget,
                 max_length=get_username_max_length())
         else:
             assert app_settings.AUTHENTICATION_METHOD \
-                == AuthenticationMethod.USERNAME_EMAIL
+                   == AuthenticationMethod.USERNAME_EMAIL
             login_widget = forms.TextInput(attrs={'placeholder':
-                                                  _('Username or e-mail'),
+                                                      _('Username or e-mail'),
                                                   'autofocus': 'autofocus'})
             login_field = forms.CharField(label=pgettext("field label",
                                                          "Login"),
@@ -260,7 +259,7 @@ class BaseSignupForm(_base_signup_form_class()):
                                min_length=app_settings.USERNAME_MIN_LENGTH,
                                widget=forms.TextInput(
                                    attrs={'placeholder':
-                                          _('Username'),
+                                              _('Username'),
                                           'autofocus': 'autofocus'}))
     email = forms.EmailField(widget=forms.TextInput(
         attrs={'type': 'email',
@@ -415,7 +414,6 @@ class UserForm(forms.Form):
 
 
 class AddEmailForm(UserForm):
-
     email = forms.EmailField(
         label=_("E-mail"),
         required=True,
@@ -451,7 +449,6 @@ class AddEmailForm(UserForm):
 
 
 class ChangePasswordForm(PasswordVerificationMixin, UserForm):
-
     oldpassword = PasswordField(label=_("Current Password"))
     password1 = SetPasswordField(label=_("New Password"))
     password2 = PasswordField(label=_("New Password (again)"))
@@ -471,7 +468,6 @@ class ChangePasswordForm(PasswordVerificationMixin, UserForm):
 
 
 class SetPasswordForm(PasswordVerificationMixin, UserForm):
-
     password1 = SetPasswordField(label=_("Password"))
     password2 = PasswordField(label=_("Password (again)"))
 
@@ -484,7 +480,6 @@ class SetPasswordForm(PasswordVerificationMixin, UserForm):
 
 
 class ResetPasswordForm(forms.Form):
-
     email = forms.EmailField(
         label=_("E-mail"),
         required=True,
@@ -541,7 +536,6 @@ class ResetPasswordForm(forms.Form):
 
 
 class ResetPasswordKeyForm(PasswordVerificationMixin, forms.Form):
-
     password1 = SetPasswordField(label=_("New Password"))
     password2 = PasswordField(label=_("New Password (again)"))
 
@@ -556,7 +550,6 @@ class ResetPasswordKeyForm(PasswordVerificationMixin, forms.Form):
 
 
 class UserTokenForm(forms.Form):
-
     uidb36 = forms.CharField()
     key = forms.CharField()
 

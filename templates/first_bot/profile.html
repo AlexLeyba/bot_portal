@@ -1,10 +1,54 @@
-{% extends 'base.html' %}
-{% block content %}
-    {{ profile.name }}<br>
-    {{ profile.phone }}<br>
-    {{ profile.address }}<br>
-    {{ profile.about }}<br>
-    <div class="section__menu">
-        <a href="{% url 'edit' pk=profile.id %}">Редактировать профиль.</a>
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'profile.css' %}">
+    <title>Profile</title>
+</head>
+<body>
+<section>
+    <div class="container">
+        <div class="user">
+            <img src="../../static/images/user.png" alt="">
+            <ul>
+                <li><p>Имя: {{ profile.name }}</p></li>
+                <li><p>Телефон: {{ profile.phone }}</p></li>
+                <li><p>Адрес: {{ profile.address }}</p></li>
+                <li><p>О себе: {{ profile.about }}</p></li>
+            </ul>
+        </div>
     </div>
+</section>
+<section>
+    <div class="container">
+        <div class="bottom_menu">
+            <a class="menu__item" href="{% url 'edit' pk=profile.id %}">Редактировать</a>
+            <a class="menu__item" href="#">Блок перехвата</a>
+            <a class="menu__item" href="#">Блок перехвата</a>
+            <a class="menu__item" href="#">Блок перехвата</a>
+            <a class="menu__item" href="#">Блок перехвата</a>
+            <a class="menu__item" href="#">Блок перехвата</a>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+
+    </div>
+</section>
+<section>
+    <div class="container">
+
+    </div>
+</section>
+<footer>
+    <div class="container">
+
+    </div>
+</footer>
+</body>
+</html>
+
+{% block content %}
 {% endblock %}

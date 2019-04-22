@@ -10,6 +10,7 @@
     font-weight: normal;
     font-style: normal;
 }
+
 /*******/
 
 html, body {
@@ -297,4 +298,96 @@ input {
     display: block;
     margin: 0 auto;
     text-align: center;
+}
+
+.login p {
+    padding-top: 4vh;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.news1 p {
+    padding-top: 4vh;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#id_remember {
+    width: 2vw;
+}
+
+.news2 {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 2vw;
+    margin: 1vw auto 0 auto;
+    width: 50vw;
+    height: 70vh;
+    background: #FFFFFF;
+    border: 0 solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.news2 input {
+    padding-left: 1.5vw;
+    width: 15vw;
+    height: 5.8vh;
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    box-sizing: border-box;
+    border-radius: 5px;
+
+}
+
+.news2 button {
+    width: 17.5vw;
+    border-radius: 30px;
+    padding: 1vw;
+    outline: none;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0.5vw;
+    text-align: center;
+}
+
+.news2 h1 {
+    font-weight: 300;
+    font-family: Geometria, serif;
+    font-size: 16px;
+    line-height: normal;
+    text-align: center;
+    color: #000000;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 3vw;
+
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+}
+
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
 }

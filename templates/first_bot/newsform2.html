@@ -1,16 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="container">
+    <div class="news2">
         <form method="POST" id="signup" action="#">
-            <div class="header">
-                <h3>Панель СМИ 1</h3>
-            </div>
+            <h1>Форма СМИ №2</h1>
             {% csrf_token %}
             <p>
             <td>{{ form.positive }}
                 <button type="button" onclick="incrementValue()" class="pl">Плюс</button>
             </td>
-
             <p>
             <td>{{ form.negative }}
                 <button type="button" onclick="incrementValue1()" class="ml">Минус</button>
@@ -20,7 +17,7 @@
                 <button type="button" onclick="incrementValue2()" class="nl">Нейтрально</button>
             </td>
             <br>
-            <input type="submit" class="submit_button" value="Сохранить" class='formout'>
+            <button type="submit" value="Сохранить">Отправить</button>
         </form>
     </div>
 {% endblock %}

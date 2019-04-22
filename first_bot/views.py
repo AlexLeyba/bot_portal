@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import View
 from django.views.generic.edit import UpdateView, CreateView
 from first_bot.forms import ProfileForm, NewsForm, News2Form
+from django.core.paginator import Paginator
 
 
 class General(View):
@@ -48,13 +49,15 @@ class NewsSave2(View):
 
     @staticmethod
     def post(request):
-        """переделать так что бы каждый раз создавался новый объект модели"""
         form = News2Form(request.POST)
-        news = News2.objects.get(id=70)  # вот тут при деплое или клоне проекта на чистой бд ставить id=1
+        news = News2()
+        a = int(request.POST.get('positive'))
+        b = int(request.POST.get('negative'))
+        c = int(request.POST.get('neutral'))
         if form.is_valid():
-            news.positive += int(request.POST.get('positive'))
-            news.negative += int(request.POST.get('negative'))
-            news.neutral += int(request.POST.get('neutral'))
+            news.positive += a
+            news.negative += b
+            news.neutral += c
             news.save()
             return HttpResponseRedirect('/news/')
 
@@ -66,14 +69,16 @@ class EditProfile(UpdateView):
 
 
 class NewsView(View):
-    """Рабочая реализация №1"""
 
     @staticmethod
     def get(request):
         news = News.objects.all()
-        news2 = News2.objects.all()
+        paginator = Paginator(news, 4)
+        page = request.GET.get('page')
+        contacts = paginator.get_page(page)
+        news2 = News2.objects.order_by('-id')[0:1]
         context = {
-            'news': news,
-            'news2': news2
+            'news': contacts,
+            'news2': news2,
         }
         return render(request, 'first_bot/news.html', context)

@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-    <form action="" method="post">
-        {% csrf_token %}
-        <table>
-            {{ form }}
-        </table>
-        <input type="submit" value="Submit"/>
-    </form>
+    <div class="signup_form">
+        <h1>Форма СМИ №1</h1>
+        <form  class="news1" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" value="Сохранить">Отправить</button>
+        </form>
+    </div>
 {% endblock %}
