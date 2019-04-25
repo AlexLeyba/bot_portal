@@ -231,8 +231,13 @@ footer {
     border: 0.10vw solid #dbd7d2;
     box-sizing: border-box;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
 }
+.green_img {
+    background-image: url('images/green.png');
+    background-position: right bottom;
+    background-repeat: no-repeat;
+}
+
 
 .news p {
     margin: 1vw 2vw;

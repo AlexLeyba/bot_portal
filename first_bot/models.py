@@ -70,6 +70,7 @@ class Mistake(models.Model):
 
 
 class News(models.Model):
+    """Изменить поле types на чеис"""
     types = models.CharField(max_length=1000)
     urls = models.CharField('Ссылки', max_length=1000)
     data = models.DateField('Дата')

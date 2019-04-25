@@ -8,20 +8,16 @@
 </head>
 <body>
 <section>
-    <div class="container">
-        <div class="user">
-            <img src="../../static/images/user.png" alt="">
-            <ul>
-                <li><p>Имя: {{ profile.name }}</p></li>
-                <li><p>Телефон: {{ profile.phone }}</p></li>
-                <li><p>Адрес: {{ profile.address }}</p></li>
-                <li><p>О себе: {{ profile.about }}</p></li>
-            </ul>
-        </div>
+    <div class="section__one">
+        <img src="../../static/images/user.png" alt="">
+        <ul>
+            <li><p>Имя: {{ profile.name }}</p></li>
+            <li><p>Телефон: {{ profile.phone }}</p></li>
+            <li><p>Адрес: {{ profile.address }}</p></li>
+            <li><p>О себе: {{ profile.about }}</p></li>
+        </ul>
     </div>
-</section>
-<section>
-    <div class="container">
+    <div class="section__two">
         <div class="bottom_menu">
             <a class="menu__item" href="{% url 'edit' pk=profile.id %}">Редактировать</a>
             <a class="menu__item" href="#">Блок перехвата</a>
@@ -30,21 +26,43 @@
             <a class="menu__item" href="#">Блок перехвата</a>
             <a class="menu__item" href="#">Блок перехвата</a>
         </div>
-    </div>
-</section>
-<section>
-    <div class="container">
-
-    </div>
-</section>
-<section>
-    <div class="container">
-
+        <table class="table_one">
+            <tr>
+                <td><a href="#"><img src="#" alt=""></a></td>
+                <td><a href="#"><img src="#" alt=""></a></td>
+                <td><a href="#"><img src="#" alt=""></a></td>
+                <td><a href="#"><img src="#" alt=""></a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <table class="table_two">
+            <tr>
+                <td>Тип бота 1</td>
+                <td>Тип бота 2</td>
+                <td>Тип бота 3</td>
+                <td>Тип бота 4</td>
+            </tr>
+            <tr>
+                <td><a href="#"><img src="../../static/images/bot1.png" alt=""></a></td>
+                <td><a href="#"><img src="../../static/images/bot2.png" alt=""></a></td>
+                <td><a href="#"><img src="../../static/images/bot1.png" alt=""></a></td>
+                <td><a href="#"><img src="../../static/images/bot2.png" alt=""></a></td>
+            </tr>
+        </table>
     </div>
 </section>
 <footer>
     <div class="container">
-
+        <div class="foo">
+            <a href="/">Главная</a>
+        </div>
     </div>
 </footer>
 </body>

@@ -22,7 +22,80 @@ body {
     background: #101010;
 }
 
-.container {
+.foo a {
+    color: #424242;
+}
+
+footer {
     width: 80%;
     margin: 0 auto;
+    text-align: right;
 }
+
+section {
+    padding: 3.5vw;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.section__one {
+    background: #1A1A1A;
+    color: white;
+}
+
+
+.section__two {
+    margin-left: 14vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.bottom_menu {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.bottom_menu a {
+    text-decoration: none;
+    width: 17.5vw;
+    border-radius: 30px;
+    padding: 1vw;
+    outline: none;
+    color: white;
+    background-color: #1A1A1A;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0.5vw;
+    text-align: center;
+
+}
+
+.table_one {
+    flex-basis: max-content;
+}
+
+
+.table_one td {
+    background: #101010;
+    border: 1px solid #1A1A1A;
+    box-sizing: border-box;
+    border-radius: 5px;
+    width: 3vw;
+    height: 5vw;
+}
+
+.table_two td {
+    color: white;
+    background: #101010;
+    border: 1px solid #1A1A1A;
+    box-sizing: border-box;
+    border-radius: 5px;
+    width: 3vw;
+    height: 5vw;
+}
+
