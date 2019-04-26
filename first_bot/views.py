@@ -3,8 +3,9 @@ from first_bot.models import *
 from django.shortcuts import render, redirect
 from django.views.generic import View
 from django.views.generic.edit import UpdateView, CreateView
-from first_bot.forms import ProfileForm, NewsForm, News2Form
+from first_bot.forms import ProfileForm, NewsForm, News2Form, AddmistakeForm
 from django.core.paginator import Paginator
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class General(View):
@@ -17,8 +18,12 @@ class ProfileView(View):
     @staticmethod
     def get(request):
         profile = Profile.objects.get(user=request.user)
+        bot = Bot.objects.filter(profile__user__id=request.user.id)
+        medal = Medal.objects.filter(profile__user__id=request.user.id)
         context = {
             'profile': profile,
+            'bot': bot,
+            'medal': medal,
         }
         return render(request, "first_bot/profile.html", context)
 
@@ -62,10 +67,19 @@ class NewsSave2(View):
             return HttpResponseRedirect('/news/')
 
 
-class EditProfile(UpdateView):
+class EditProfile(LoginRequiredMixin, UpdateView):
     model = Profile
-    template_name = 'first_bot/editprofile.html'
     form_class = ProfileForm
+    template_name = 'first_bot/editprofile.html'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        form.save()
+        return redirect('/profile/')
+
+    @staticmethod
+    def success_url():
+        return redirect('/profile/')
 
 
 class NewsView(View):
@@ -82,3 +96,18 @@ class NewsView(View):
             'news2': news2,
         }
         return render(request, 'first_bot/news.html', context)
+
+
+class AddMistake(CreateView):
+    model = Mistake
+    template_name = 'first_bot/addmistake.html'
+    form_class = AddmistakeForm
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        form.save()
+        return redirect('/profile/')
+
+    @staticmethod
+    def success_url():
+        return redirect('/news/')

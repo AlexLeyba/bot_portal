@@ -41,11 +41,19 @@ section {
     justify-content: space-between;
 }
 
+img {
+    max-width: 100%;
+}
 .section__one {
+    border-radius: 10px;
+    width: 80%;
     background: #1A1A1A;
     color: white;
 }
 
+.section__one img {
+    width: 25vw;
+}
 
 .section__two {
     margin-left: 14vw;
@@ -76,26 +84,40 @@ section {
 }
 
 .table_one {
+    width: 100%;
     flex-basis: max-content;
 }
 
 
 .table_one td {
+    text-align: center;
     background: #101010;
     border: 1px solid #1A1A1A;
     box-sizing: border-box;
     border-radius: 5px;
-    width: 3vw;
+    width: 20%;
     height: 5vw;
 }
 
+.table_two {
+    width: 100%;
+    padding-top: 2vw;
+}
 .table_two td {
+    text-align: center;
     color: white;
     background: #101010;
     border: 1px solid #1A1A1A;
     box-sizing: border-box;
     border-radius: 5px;
-    width: 3vw;
+    width: 25%;
     height: 5vw;
 }
 
+#q {
+    height: 2vw;
+    text-align: center;
+}
+ #w {
+     margin-right: 3vw;
+ }

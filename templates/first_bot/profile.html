@@ -9,7 +9,9 @@
 <body>
 <section>
     <div class="section__one">
-        <img src="../../static/images/user.png" alt="">
+        {% if profile.photo %}
+            <img src="{{ MEDIA_URL }}{{ profile.photo.url }}" alt="">
+        {% endif %}
         <ul>
             <li><p>Имя: {{ profile.name }}</p></li>
             <li><p>Телефон: {{ profile.phone }}</p></li>
@@ -19,35 +21,35 @@
     </div>
     <div class="section__two">
         <div class="bottom_menu">
-            <a class="menu__item" href="{% url 'edit' pk=profile.id %}">Редактировать</a>
-            <a class="menu__item" href="#">Блок перехвата</a>
-            <a class="menu__item" href="#">Блок перехвата</a>
-            <a class="menu__item" href="#">Блок перехвата</a>
-            <a class="menu__item" href="#">Блок перехвата</a>
-            <a class="menu__item" href="#">Блок перехвата</a>
+            <a class="menu__item" id="w" href="{% url 'edit' pk=profile.id %}">Редактировать</a>
+            <a class="menu__item" href="#">Добавить бота</a>
+            <a class="menu__item" id="w" href="{% url 'addmistake' %}">Добавить ошибку</a>
+            <a class="menu__item" href="#">Последние ошибки</a>
+            <a class="menu__item" id="w" href="#">Кнопки</a>
+            <a class="menu__item" href="#">Числа</a>
         </div>
         <table class="table_one">
-            <tr>
-                <td><a href="#"><img src="#" alt=""></a></td>
-                <td><a href="#"><img src="#" alt=""></a></td>
-                <td><a href="#"><img src="#" alt=""></a></td>
-                <td><a href="#"><img src="#" alt=""></a></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+                <tr>
+                {% for medals in medal %}
+                    {% if medals.picture %}
+                    <td><a href="#"><img src="{{ MEDIA_URL }}{{ medals.picture.url }}" alt=""></a></td>
+                    {% endif %}
+                 {% endfor %}
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
         </table>
         <table class="table_two">
             <tr>
-                <td>Тип бота 1</td>
-                <td>Тип бота 2</td>
-                <td>Тип бота 3</td>
-                <td>Тип бота 4</td>
+                <td id="q">Тип бота 1</td>
+                <td id="q">Тип бота 2</td>
+                <td id="q">Тип бота 3</td>
+                <td id="q">Тип бота 4</td>
             </tr>
             <tr>
                 <td><a href="#"><img src="../../static/images/bot1.png" alt=""></a></td>
@@ -67,6 +69,3 @@
 </footer>
 </body>
 </html>
-
-{% block content %}
-{% endblock %}

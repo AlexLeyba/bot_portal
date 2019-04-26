@@ -232,6 +232,7 @@ footer {
     box-sizing: border-box;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .green_img {
     background-image: url('images/green.png');
     background-position: right bottom;
@@ -395,4 +396,42 @@ input {
     background-color: #4CAF50;
     color: white;
     border: 1px solid #4CAF50;
+}
+
+.editprofile__form {
+    padding-top: 2vw;
+    margin: 1vw auto 0 auto;
+    width: 50vw;
+    height: 70vh;
+    background: #FFFFFF;
+    border: 0 solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+.editprofile__form button {
+    width: 17.5vw;
+    display: block;
+    border-radius: 30px;
+    padding: 1vw;
+    outline: none;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 5vh auto 0 auto;
+    text-align: center;
+}
+
+.editprofile__form input {
+    padding-top: 4vh;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+#photo-clear_id {
+    height: 1vw;
 }

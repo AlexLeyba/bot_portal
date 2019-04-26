@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="signup_form">
+        <form class="news1" method="post" action="" enctype="multipart/form-data">
+            <h1>Добавить ошибку</h1>
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Отправить">
+        </form>
+    </div>
+{% endblock %}

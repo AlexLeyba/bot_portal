@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-    <form action="" method="post">
-        {% csrf_token %}
-        <table>
-            {{ form }}
-        </table>
-        <input type="submit" value="Submit"/>
-    </form>
+    <div class="editprofile__form">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.name }}
+            {{ form.phone }}
+            {{ form.address }}
+            {{ form.about }}
+            {{ form.photo }}
+            <button class="primaryAction" type="submit">Редактировать</button>
+        </form>
+    </div>
 {% endblock %}

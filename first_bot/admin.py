@@ -8,7 +8,7 @@ class BotAdmin(admin.ModelAdmin):
 
 admin.site.register(Bot, BotAdmin)
 admin.site.register(Profile)
-admin.site.register(Stars)
+admin.site.register(Medal)
 admin.site.register(Mistake)
 admin.site.register(News)
 admin.site.register(News2)
