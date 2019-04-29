@@ -1,42 +1,45 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="content">
-        <div class="content.news2">
-            <div class="h4">
-                <p>Сборка статей</p>
+    <section>
+        <div class="content">
+            <div class="content.news2">
+                <div class="h4">
+                    <p>Сборка статей</p>
+                </div>
+                <div class="content_result">
+                    {% for i in news2 %}
+                        <ul class="ul_news">
+                            <li class="green">Позитивных: {{ i.positive }}</li>
+                            <li class="red">Негативных: {{ i.negative }}</li>
+                            <li class="black">Нейтральных: {{ i.neutral }}</li>
+                        </ul>
+                    {% endfor %}
+                </div>
             </div>
-            <div class="content_result">
-                {% for i in news2 %}
-                    <ul class="ul_news">
-                        <li class="green">Позитивных: {{ i.positive }}</li>
-                        <li class="red">Негативных: {{ i.negative }}</li>
-                        <li class="black">Нейтральных: {{ i.neutral }}</li>
-                    </ul>
+            <div class="content_news1">
+                {% for new in news %}
+                    <div class="news green_img">
+                        <p>{{ new.types }}<span>{{ new.data }}</span></p>
+                        <p>{{ new.urls }}</p>
+                    </div>
                 {% endfor %}
             </div>
-        </div>
-        <div class="content_news1">
-            {% for new in news %}
-                <div class="news green_img">
-                    <p>{{ new.types }}<span>{{ new.data }}</span></p>
-                    <p>{{ new.urls }}</p>
-                </div>
-            {% endfor %}
-        </div>
-        <div class="pagination">
-    <span class="step-links">
-        {% if news.has_previous %}
-            <a href="?page=1">❮</a>
+            {#        <div class="pagination">#}
+            {#    <span class="step-links">#}
+            {#        {% if news.has_previous %}#}
+            {#            <a href="?page=1">❮</a>#}
             {#            <a href="?page={{ news.previous_page_number }}">в начало</a>#}
-        {% endif %}
-{#        <span class="current">#}
-{#            Страница {{ news.number }} из {{ news.paginator.num_pages }}.#}
-{#        </span>#}
-        {% if news.has_next %}
-            <a href="?page={{ news.next_page_number }}">❯</a>
+            {#        {% endif %}#}
+            {#        <span class="current">#}
+            {#            Страница {{ news.number }} из {{ news.paginator.num_pages }}.#}
+            {#        </span>#}
+            {#        {% if news.has_next %}#}
+            {#            <a href="?page={{ news.next_page_number }}">❯</a>#}
             {#            <a href="?page={{ news.paginator.num_pages }}">последняя &raquo;</a>#}
-        {% endif %}
-    </span>
+            {#        {% endif %}#}
+            {#    </span>#}
+            {#        </div>#}
+            {#    </div>#}
         </div>
-    </div>
+    </section>
 {% endblock %}

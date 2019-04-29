@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section>
+        <p id="p">Последние ошибки</p>
+        <div class="mistake">
+            {% for mistake in object_list %}
+                <div class="one__mistake">
+                    <div class="text">
+                        <div>
+                            <p id="size1">{{ mistake.name }}</p>
+                            <p id="size">{{ mistake.types }}</p>
+                        </div>
+                        <div>
+                            <p id="size">{{ mistake.date }}</p>
+                            <p id="size">{{ mistake.time }}</p>
+                        </div>
+                    </div>
+                    <img src="{{ MEDIA_URL }}{{ mistake.picture.url }}" alt="">
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

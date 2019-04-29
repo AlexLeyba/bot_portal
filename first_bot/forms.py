@@ -1,5 +1,5 @@
 from django import forms
-from .models import Profile, News, News2, Mistake, Bot
+from .models import Profile, News, News2, Bot, Errors
 
 
 class ProfileForm(forms.ModelForm):
@@ -15,11 +15,12 @@ class ProfileForm(forms.ModelForm):
         #     'about': forms.TextInput(attrs={'placeholder': 'О себе'}),
         # }
 
+
 class NewsForm(forms.ModelForm):
     class Meta:
         model = News
         fields = ('types', 'urls', 'data')
-        labels = {'types': '', 'urls': '', 'data': '',}
+        labels = {'types': '', 'urls': '', 'data': '', }
         widgets = {
             'types': forms.TextInput(attrs={'placeholder': 'Тип статьи'}),
             'urls': forms.TextInput(attrs={'placeholder': 'url'}),
@@ -35,9 +36,26 @@ class News2Form(forms.ModelForm):
 
 class AddmistakeForm(forms.ModelForm):
     class Meta:
-        model = Mistake
-        fields = ('name', 'picture',)
-        labels = {'name': '', 'picture':''}
+        model = Errors
+        fields = ('name', 'types', 'date', 'time', 'picture')
+        labels = {'name': '', 'picture': '', 'date': '', 'time': '', 'types': ''}
         widgets = {
-            'name': forms.TextInput(attrs={'placeholder': 'Тип ошибки'}),
+            'name': forms.TextInput(attrs={'placeholder': 'Номер ошибки'}),
+            'types': forms.TextInput(attrs={'placeholder': 'Тип ошибки'}),
+            'time': forms.TextInput(attrs={'placeholder': 'Время'}),
+            'date': forms.TextInput(attrs={'placeholder': 'Дата'}),
         }
+
+class AddBotForm(forms.ModelForm):
+    class Meta:
+        model = Bot
+        fields = ('name', 'technology', 'body', 'slug', 'picture')
+        labels = {'name': '', 'technology': '', 'body': '', 'slug': '', 'picture': ''}
+        widgets = {
+            'name': forms.TextInput(attrs={'placeholder': 'Название бота'}),
+            'technology': forms.TextInput(attrs={'placeholder': 'Используемые технологии'}),
+            'body': forms.TextInput(attrs={'placeholder': 'Описание'}),
+            'slug': forms.TextInput(attrs={'placeholder': 'То что будет в урле'}), #сделать авто генерацию слаг
+        }
+
+

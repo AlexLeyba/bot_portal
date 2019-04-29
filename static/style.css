@@ -76,6 +76,12 @@ a {
 }
 
 section {
+    /*height: 80vh;*/
+    /*border: 0.10vw solid #dbd7d2;*/
+    /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+}
+
+#border {
     height: 80vh;
     border: 0.10vw solid #dbd7d2;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -434,4 +440,62 @@ input {
 
 #photo-clear_id {
     height: 1vw;
+}
+
+#button {
+    width: 17.5vw;
+    display: block;
+    border-radius: 30px;
+    padding: 1vw;
+    outline: none;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 5vh auto 0 auto;
+    text-align: center;
+}
+
+.mistake {
+    margin: 0 10vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.one__mistake {
+    margin-top: 2vw;
+    width: 30%;
+    border: 0.10vw solid #dbd7d2;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#p {
+    margin-left: 10vw;
+    margin-top: 5vw;
+}
+
+#size1 {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+#size {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.one__mistake img {
+    position: relative;
+    bottom: -10px;
+}
+
+.text div {
+    padding: 1vw;
+}
+
+.text {
+    display: flex;
+    justify-content: space-between;
 }

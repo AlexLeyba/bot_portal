@@ -1,9 +1,9 @@
 from django.http import HttpResponseRedirect
 from first_bot.models import *
 from django.shortcuts import render, redirect
-from django.views.generic import View
+from django.views.generic import View, ListView, DetailView
 from django.views.generic.edit import UpdateView, CreateView
-from first_bot.forms import ProfileForm, NewsForm, News2Form, AddmistakeForm
+from first_bot.forms import ProfileForm, NewsForm, News2Form, AddmistakeForm, AddBotForm
 from django.core.paginator import Paginator
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -16,8 +16,8 @@ class General(View):
 
 class ProfileView(View):
     @staticmethod
-    def get(request):
-        profile = Profile.objects.get(user=request.user)
+    def get(request, pk):
+        profile = Profile.objects.get(pk=request.user.id)
         bot = Bot.objects.filter(profile__user__id=request.user.id)
         medal = Medal.objects.filter(profile__user__id=request.user.id)
         context = {
@@ -87,19 +87,25 @@ class NewsView(View):
     @staticmethod
     def get(request):
         news = News.objects.all()
-        paginator = Paginator(news, 4)
-        page = request.GET.get('page')
-        contacts = paginator.get_page(page)
+        # paginator = Paginator(news, 4)
+        # page = request.GET.get('page')
+        # contacts = paginator.get_page(page)
         news2 = News2.objects.order_by('-id')[0:1]
         context = {
-            'news': contacts,
+            'news': news,
             'news2': news2,
         }
         return render(request, 'first_bot/news.html', context)
 
 
+class Mistake(ListView):
+    template_name = 'first_bot/mistake.html'
+    model = Errors
+    queryset = Errors.objects.all()
+
+
 class AddMistake(CreateView):
-    model = Mistake
+    model = Errors
     template_name = 'first_bot/addmistake.html'
     form_class = AddmistakeForm
 
@@ -111,3 +117,18 @@ class AddMistake(CreateView):
     @staticmethod
     def success_url():
         return redirect('/news/')
+
+
+class BotView(View):
+    def get(self, request, slug):
+        bot = Bot.objects.filter(slug=slug)
+        context = {
+            'bot': bot
+        }
+        return render(request, 'first_bot/bots.html', context)
+
+
+class AddBotView(CreateView):
+    template_name = 'first_bot/addbot.html'
+    model = Bot
+    form_class = AddBotForm

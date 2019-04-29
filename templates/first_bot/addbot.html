@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="signup_form">
-        <h1>Форма СМИ №1</h1>
-        <form  class="news1" method="post">
+        <form class="news1" method="post" action="" enctype="multipart/form-data">
+            <h1>Добавить нового бота</h1>
             {% csrf_token %}
             {{ form.as_p }}
             <input id="button" type="submit" value="Отправить">

@@ -4,8 +4,8 @@
         <form class="news1" method="post" action="" enctype="multipart/form-data">
             <h1>Добавить ошибку</h1>
             {% csrf_token %}
-            {{ form }}
-            <input type="submit" value="Отправить">
+            {{ form.as_p }}
+            <input id="button" type="submit" value="Отправить">
         </form>
     </div>
 {% endblock %}
