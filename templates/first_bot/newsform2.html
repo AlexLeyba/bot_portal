@@ -16,8 +16,12 @@
             <td>{{ form.neutral }}
                 <button type="button" onclick="incrementValue2()" class="nl">Нейтрально</button>
             </td>
+            <p>
+            <td>{{ form.notapplicable }}
+                <button type="button" onclick="incrementValue3()" class="ol">Не относится</button>
+            </td>
             <br>
-            <button type="submit" value="Сохранить">Отправить</button>
+            <input id="button" type="submit" value="Отправить">
         </form>
     </div>
 {% endblock %}

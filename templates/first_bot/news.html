@@ -12,34 +12,26 @@
                             <li class="green">Позитивных: {{ i.positive }}</li>
                             <li class="red">Негативных: {{ i.negative }}</li>
                             <li class="black">Нейтральных: {{ i.neutral }}</li>
+                            <li class="black">Не относятся: {{ i.notapplicable }}</li>
                         </ul>
                     {% endfor %}
                 </div>
             </div>
             <div class="content_news1">
                 {% for new in news %}
-                    <div class="news green_img">
+                    {% if new.types == 'Положительный характер' %}
+                        <div class="news green_img">
                         <p>{{ new.types }}<span>{{ new.data }}</span></p>
                         <p>{{ new.urls }}</p>
-                    </div>
+                        {% else %}{% if new.types == 'Отрицательный характер' %}
+                            <div class="news red_img">
+                                <p>{{ new.types }}<span>{{ new.data }}</span></p>
+                                <p>{{ new.urls }}</p>
+                            </div>
+                        {% endif %}{% endif %}
+                </div>
                 {% endfor %}
             </div>
-            {#        <div class="pagination">#}
-            {#    <span class="step-links">#}
-            {#        {% if news.has_previous %}#}
-            {#            <a href="?page=1">❮</a>#}
-            {#            <a href="?page={{ news.previous_page_number }}">в начало</a>#}
-            {#        {% endif %}#}
-            {#        <span class="current">#}
-            {#            Страница {{ news.number }} из {{ news.paginator.num_pages }}.#}
-            {#        </span>#}
-            {#        {% if news.has_next %}#}
-            {#            <a href="?page={{ news.next_page_number }}">❯</a>#}
-            {#            <a href="?page={{ news.paginator.num_pages }}">последняя &raquo;</a>#}
-            {#        {% endif %}#}
-            {#    </span>#}
-            {#        </div>#}
-            {#    </div>#}
         </div>
     </section>
 {% endblock %}

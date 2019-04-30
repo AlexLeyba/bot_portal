@@ -54,7 +54,7 @@
                 <tr>
                     {% for bots in bot %}
                         {% if bots.picture %}
-                            <td><a href="#"><img src="{{ MEDIA_URL }}{{ bots.picture.url }}" alt=""></a></td>
+                            <td><a href="{% url 'bot' slug=bots.slug %}"><img src="{{ MEDIA_URL }}{{ bots.picture.url }}" alt=""></a></td>
                         {% endif %}
                     {% endfor %}
                 </tr>

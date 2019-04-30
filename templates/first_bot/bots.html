@@ -1,6 +1,53 @@
-{% extends 'first_bot/profile.html' %}
-{% block content %}
-    <div>
-
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'form.js' %}"></script>
+    <meta charset="UTF-8">
+    <title>Portal</title>
+</head>
+<body id="body__bot">
+<header>
+    <div class="content header">
+        <div class="header__logo">
+            <a href="/"><img src="../../static/images/header_logo.png" alt=""></a>
+        </div>
+        <div class="p">
+            <p id="hed">Отдел структурного программирования</p>
+        </div>
+        <div class="header__sign">
+            {% if user.is_authenticated %}
+                <a href="{% url 'profiles' pk=user.id %}">Профиль</a>
+                <a href="{% url 'account_logout' %}">Выйти</a>
+            {% else %}
+                <a href="{% url 'account_signup' %}">Регистрация</a>
+                <a href="{% url 'account_login' %}">Вход</a>
+            {% endif %}
+        </div>
     </div>
-{% endblock %}
+</header>
+<div class="content__bot">
+    {% for bots in bot %}
+        <div class="bot__teh"><p> Название бота:  {{ bots.name }}</p>
+            <p> Технологии:  {{ bots.technology }}</p></div>
+        <div class="bot__image"><img src="{{ MEDIA_URL }}{{ bots.picture.url }}" alt=""></div>
+        <p>{{ bots.body }}</p>
+    {% endfor %}
+    <div class="back"><a href="{% url 'profiles' pk=user.id %}">Назад</a></div>
+</div>
+<footer>
+    <div class="footer__menu">
+        <div class="footer__itc">
+            <p id="itc">@ИТЦ 2019</p>
+        </div>
+        <div class="footer__social">
+            <div class="images">
+                <img src="../../static/images/fb_red.png" alt="">
+                <img src="../../static/images/vk_red.png" alt="">
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

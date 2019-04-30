@@ -88,10 +88,10 @@ class News(models.Model):
 
 
 class News2(models.Model):
-    """Рбочая реализация #1"""
     positive = models.IntegerField('позитвная', blank=True, null=True, default=0)
     negative = models.IntegerField('негативная', blank=True, null=True, default=0)
     neutral = models.IntegerField('нейтральная', blank=True, null=True, default=0)
+    notapplicable = models.IntegerField('не относится', blank=True, null=True, default=0)
 
 
 @receiver(post_save, sender=User)

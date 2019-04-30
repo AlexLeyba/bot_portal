@@ -31,7 +31,7 @@ class NewsForm(forms.ModelForm):
 class News2Form(forms.ModelForm):
     class Meta:
         model = News2
-        fields = ('negative', 'positive', 'neutral')
+        fields = ('negative', 'positive', 'neutral', 'notapplicable')
 
 
 class AddmistakeForm(forms.ModelForm):

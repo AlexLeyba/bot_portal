@@ -59,10 +59,12 @@ class NewsSave2(View):
         a = int(request.POST.get('positive'))
         b = int(request.POST.get('negative'))
         c = int(request.POST.get('neutral'))
+        d = int(request.POST.get('notapplicable'))
         if form.is_valid():
             news.positive += a
             news.negative += b
             news.neutral += c
+            news.notapplicable += d
             news.save()
             return HttpResponseRedirect('/news/')
 
