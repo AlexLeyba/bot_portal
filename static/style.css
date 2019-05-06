@@ -42,6 +42,14 @@ header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+#header__bot {
+    margin: 2vw 0;
+    background: #FFFFFF;
+    border: 0.10vw solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .header {
     height: 50px;
     display: flex;
@@ -82,13 +90,18 @@ section {
 }
 
 #border {
-    height: 80vh;
+    margin-top: 5vw;
+    margin-bottom: 4vw;
     border: 0.10vw solid #dbd7d2;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-image: url('images/Vector.png');
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 50% 100%;
 }
 
 .section__menu {
-    margin: 1vw;
+    margin: 1vw 0vw;
     height: 50vh;
     width: 35vh;
     display: flex;
@@ -97,7 +110,7 @@ section {
 }
 
 .section__menu a {
-    width: 17.5vw;
+    width: 16vw;
     border-radius: 30px;
     padding: 1vw;
     outline: none;
@@ -105,7 +118,7 @@ section {
     border: 1px solid rgba(0, 0, 0, 0.1);
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 0.5vw;
+    margin: 0.5vw 0vw;
     text-align: center;
 }
 
@@ -116,7 +129,7 @@ section {
 
 
 .wrap-content {
-    margin-top: 6vw;
+    margin: 2vw 0vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -130,6 +143,13 @@ footer {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+#footer__bot {
+    margin: 2vw 0;
+    background: #FFFFFF;
+    border: 0.10vw solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
 .footer__menu {
     height: 50px;
@@ -143,18 +163,12 @@ footer {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    height: 36px;
+    height: 35px;
     margin-right: 1.5vw;
     padding: 0.9vw 1vw 0.9vw 10vw;
     width: 48%;
     border-right: 0.10vw solid #dbd7d2;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /*height: 36px;*/
-    /*margin-right: 1.5vw;*/
-    /*padding: 0.9vw 1vw;*/
-    /*width: 48%;*/
-    /*border: 0.10vw solid #dbd7d2;*/
-    /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
 }
 
 .footer__itc p {
@@ -167,7 +181,7 @@ footer {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    height: 36px;
+    height: 35px;
     padding: 0.9vw 10vw 0.9vw 0;
     width: 48%;
     border-left: 0.10vw solid #dbd7d2;
@@ -458,7 +472,7 @@ input {
 }
 
 .editprofile__form input {
-    padding-top: 4vh;
+
     display: flex;
     margin: 0 auto;
     justify-content: center;
@@ -556,4 +570,15 @@ input {
 
 .bot__teh {
     float: right;
+}
+
+.edit p {
+    padding-top: 4vh;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.bot__image img {
+    width: 10vw;
 }

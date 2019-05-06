@@ -77,7 +77,8 @@ class EditProfile(LoginRequiredMixin, UpdateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         form.save()
-        return redirect('/profile/')
+        return redirect('/')
+        # return redirect('/profile/{}'.format(request.user.id))
 
     @staticmethod
     def success_url():
@@ -89,9 +90,6 @@ class NewsView(View):
     @staticmethod
     def get(request):
         news = News.objects.all()
-        # paginator = Paginator(news, 4)
-        # page = request.GET.get('page')
-        # contacts = paginator.get_page(page)
         news2 = News2.objects.order_by('-id')[0:1]
         context = {
             'news': news,

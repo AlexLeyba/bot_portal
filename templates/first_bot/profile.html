@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href='/media/images/mozg.png'>
     <link rel="stylesheet" href="{% static 'profile.css' %}">
     <title>Profile</title>
 </head>
@@ -54,7 +55,8 @@
                 <tr>
                     {% for bots in bot %}
                         {% if bots.picture %}
-                            <td><a href="{% url 'bot' slug=bots.slug %}"><img src="{{ MEDIA_URL }}{{ bots.picture.url }}" alt=""></a></td>
+                            <td><a href="{% url 'bot' slug=bots.slug %}"><img
+                                    src="{{ MEDIA_URL }}{{ bots.picture.url }}" alt=""></a></td>
                         {% endif %}
                     {% endfor %}
                 </tr>

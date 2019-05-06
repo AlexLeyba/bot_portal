@@ -26,7 +26,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -134,4 +133,3 @@ USE_L10N = True
 USE_TZ = True
 
 SITE_ID = 1
-

@@ -1,6 +1,6 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <script src="{% static 'form.js' %}"></script>
@@ -8,7 +8,7 @@
     <title>Portal</title>
 </head>
 <body id="body__bot">
-<header>
+<header id="header__bot">
     <div class="content header">
         <div class="header__logo">
             <a href="/"><img src="../../static/images/header_logo.png" alt=""></a>
@@ -29,14 +29,14 @@
 </header>
 <div class="content__bot">
     {% for bots in bot %}
-        <div class="bot__teh"><p> Название бота:  {{ bots.name }}</p>
-            <p> Технологии:  {{ bots.technology }}</p></div>
+        <div class="bot__teh"><p> Название бота: {{ bots.name }}</p>
+            <p> Технологии: {{ bots.technology }}</p></div>
         <div class="bot__image"><img src="{{ MEDIA_URL }}{{ bots.picture.url }}" alt=""></div>
         <p>{{ bots.body }}</p>
     {% endfor %}
     <div class="back"><a href="{% url 'profiles' pk=user.id %}">Назад</a></div>
 </div>
-<footer>
+<footer id="footer__bot">
     <div class="footer__menu">
         <div class="footer__itc">
             <p id="itc">@ИТЦ 2019</p>

@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="editprofile__form">
-        <form action="" method="post" enctype="multipart/form-data">
+        <form class="edit" action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ form.name }}
-            {{ form.phone }}
-            {{ form.address }}
-            {{ form.about }}
-            {{ form.photo }}
+            {{ form.as_p }}
+            {#            <p>{{ form.name }}</p>#}
+            {#            <p>{{ form.phone }}</p>#}
+            {#            <p>{{ form.address }}</p>#}
+            {#            <p>{{ form.about }}</p>#}
+            {#            <p>{{ form.photo }}</p>#}
             <input id="button" type="submit" value="Редактировать">
         </form>
     </div>

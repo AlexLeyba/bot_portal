@@ -6,14 +6,14 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ('name', 'phone', 'address', 'about', 'photo')
-        # labels = {'name': '', 'phone': '', 'address': '', 'about': '', }
-        # widgets = {
-        #     'photo' : forms.I
-        #     'name': forms.TextInput(attrs={'placeholder': 'Ваше имя'}),
-        #     'phone': forms.TextInput(attrs={'placeholder': 'Телефон'}),
-        #     'address': forms.TextInput(attrs={'placeholder': 'Адресс'}),
-        #     'about': forms.TextInput(attrs={'placeholder': 'О себе'}),
-        # }
+        labels = {'name': '', 'phone': '', 'address': '', 'about': '', 'photo': '' }
+        widgets = {
+            'photo': forms.FileInput(),
+            'name': forms.TextInput(attrs={'placeholder': 'Ваше имя'}),
+            'phone': forms.TextInput(attrs={'placeholder': 'Телефон'}),
+            'address': forms.TextInput(attrs={'placeholder': 'Адресс'}),
+            'about': forms.TextInput(attrs={'placeholder': 'О себе'}),
+        }
 
 
 class NewsForm(forms.ModelForm):
@@ -46,6 +46,7 @@ class AddmistakeForm(forms.ModelForm):
             'date': forms.TextInput(attrs={'placeholder': 'Дата'}),
         }
 
+
 class AddBotForm(forms.ModelForm):
     class Meta:
         model = Bot
@@ -55,7 +56,5 @@ class AddBotForm(forms.ModelForm):
             'name': forms.TextInput(attrs={'placeholder': 'Название бота'}),
             'technology': forms.TextInput(attrs={'placeholder': 'Используемые технологии'}),
             'body': forms.TextInput(attrs={'placeholder': 'Описание'}),
-            'slug': forms.TextInput(attrs={'placeholder': 'То что будет в урле'}), #сделать авто генерацию слаг
+            'slug': forms.TextInput(attrs={'placeholder': 'То что будет в урле'}),  # сделать авто генерацию слаг
         }
-
-
