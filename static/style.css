@@ -25,6 +25,14 @@ body {
     color: black;
 }
 
+h1 {
+    font-weight: 300;
+    font-family: Geometria, serif;
+    font-size: 16px;
+    line-height: normal;
+    color: #000000;
+}
+
 img {
     max-width: 100%;
 }
@@ -222,6 +230,10 @@ footer {
 .h4 {
     padding-top: 2vw;
     padding-bottom: 1.5vw;
+}
+
+.h4 input {
+
 }
 
 .h2 p {
@@ -581,4 +593,47 @@ input {
 
 .bot__image img {
     width: 10vw;
+}
+
+.border__buttons {
+    min-height: 600px;
+    margin-top: 4vw;
+    margin-bottom: 4vw;
+    border: 0.10vw solid #dbd7d2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+.buttons a {
+    width: 14vw;
+    border-radius: 30px;
+    padding: 1vw;
+    outline: none;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0.5vw 0vw;
+    text-align: center;
+}
+
+.num__h1 {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2vw;
+    padding-bottom: 1.5vw;
+}
+
+#num_input {
+    border-radius: 30px;
+}
+
+.numbers__table {
+    width: 50%;
 }

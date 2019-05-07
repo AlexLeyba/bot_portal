@@ -15,4 +15,7 @@ urlpatterns = [
                   path('mistake/', Mistake.as_view(), name='mistake'),
                   path('bot/<slug:slug>/', BotView.as_view(), name='bot'),
                   path('addbot/', AddBotView.as_view(), name='addbot'),
+                  path('buttons/', ButtonsView.as_view(), name='buttons'),
+                  path('numbers/', NumbersView.as_view(), name='numbers'),
+                  # path('getnum/<int:pk>/', GetNumber.as_view(), name='getnum')
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

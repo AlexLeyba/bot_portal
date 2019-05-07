@@ -50,7 +50,6 @@ class Bot(models.Model):
     def get_absolute_url(self):
         return reverse('news')
 
-
     def __str__(self):
         return '{}'.format(self.name)
 
@@ -92,6 +91,34 @@ class News2(models.Model):
     negative = models.IntegerField('негативная', blank=True, null=True, default=0)
     neutral = models.IntegerField('нейтральная', blank=True, null=True, default=0)
     notapplicable = models.IntegerField('не относится', blank=True, null=True, default=0)
+
+
+class Buttons(models.Model):
+    botton1 = models.CharField("Значение кнопки", default='Копка 1', max_length=100)
+    botton2 = models.CharField("Значение кнопки", default='Копка 2', max_length=100)
+    botton3 = models.CharField("Значение кнопки", default='Копка 3', max_length=100)
+    botton4 = models.CharField("Значение кнопки", default='Копка 4', max_length=100)
+    botton5 = models.CharField("Значение кнопки", default='Копка 5', max_length=100)
+    botton6 = models.CharField("Значение кнопки", default='Копка 6', max_length=100)
+    botton7 = models.CharField("Значение кнопки", default='Копка 7', max_length=100)
+    botton8 = models.CharField("Значение кнопки", default='Копка 8', max_length=100)
+    botton9 = models.CharField("Значение кнопки", default='Копка 9', max_length=100)
+    botton10 = models.CharField("Значение кнопки", default='Копка 10', max_length=100)
+    botton11 = models.CharField("Значение кнопки", default='Копка 11', max_length=100)
+    botton12 = models.CharField("Значение кнопки", default='Копка 12', max_length=100)
+    botton13 = models.CharField("Значение кнопки", default='Копка 13', max_length=100)
+    botton14 = models.CharField("Значение кнопки", default='Копка 14', max_length=100)
+    botton15 = models.CharField("Значение кнопки", default='Копка 15', max_length=100)
+    botton16 = models.CharField("Значение кнопки", default='Копка 16', max_length=100)
+    botton17 = models.CharField("Значение кнопки", default='Копка 17', max_length=100)
+    botton18 = models.CharField("Значение кнопки", default='Копка 18', max_length=100)
+    botton19 = models.CharField("Значение кнопки", default='Копка 19', max_length=100)
+    botton20 = models.CharField("Значение кнопки", default='Копка 20', max_length=100)
+
+
+class Number(models.Model):
+    namber = models.IntegerField(default=0)
+    button = models.OneToOneField(Buttons, on_delete=models.CASCADE)
 
 
 @receiver(post_save, sender=User)

@@ -132,3 +132,24 @@ class AddBotView(CreateView):
     template_name = 'first_bot/addbot.html'
     model = Bot
     form_class = AddBotForm
+
+
+class ButtonsView(View):
+    def get(self, request):
+        return render(request, 'first_bot/buttons.html')
+
+# class GetNumber(View):
+#     def get(self, request, pk):
+#         but = Buttons.objects.filter(pk=buttons.id)
+#         num = Number.objects.filter()
+#         if pk == 1:
+#
+#
+
+class NumbersView(View):
+    def get(self, request):
+        num = Number.objects.all()
+        context = {
+            'num': num
+        }
+        return render(request, 'first_bot/numbers.html', context)
