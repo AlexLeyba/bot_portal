@@ -10,9 +10,14 @@ class MistakeAdmin(admin.ModelAdmin):
     list_display = ('name', 'date', 'time')
 
 
+class MedalAdmin(admin.ModelAdmin):
+    list_display = ("name",)
+
+
+admin.site.register(Buttons)
 admin.site.register(Bot, BotAdmin)
 admin.site.register(Profile)
-admin.site.register(Medal)
+admin.site.register(Medal, MedalAdmin)
 admin.site.register(Errors, MistakeAdmin)
 admin.site.register(News)
 admin.site.register(News2)

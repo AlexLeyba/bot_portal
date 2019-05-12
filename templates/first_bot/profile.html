@@ -30,37 +30,30 @@
                 <a class="menu__item" id="w" href="{% url 'buttons' %}">Кнопки</a>
                 <a class="menu__item" href="{% url 'numbers' %}">Числа</a>
             </div>
-            <table class="table_one">
-                <tr>
-                    {% for medals in medal %}
-                        {% if medals.picture %}
-                            <td><a href="#"><img src="{{ MEDIA_URL }}{{ medals.picture.url }}" alt=""></a></td>
-                        {% endif %}
-                    {% endfor %}
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table>
-            <table class="table_two">
-                <tr>
-                    {% for bots in bot %}
-                        <td>{{ bots.name }}</td>
-                    {% endfor %}
-                </tr>
-                <tr>
-                    {% for bots in bot %}
-                        {% if bots.picture %}
-                            <td><a href="{% url 'bot' slug=bots.slug %}"><img
-                                    src="{{ MEDIA_URL }}{{ bots.picture.url }}" alt=""></a></td>
-                        {% endif %}
-                    {% endfor %}
-                </tr>
-            </table>
+            <div class="table_one">
+                {% for medals in medal %}
+                    {% if medals.picture %}
+                        <div class="medal">
+                            <a href="#"><img src="{{ MEDIA_URL }}{{ medals.picture.url }}" alt=""></a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="table_one">
+                {% for bots in bot %}
+                    <div class="medal_2">
+                        <div>
+                            {{ bots.name }}
+                        </div>
+                        <div>
+                            {% if bots.picture %}
+                                <a href="{% url 'bot' slug=bots.slug %}"><img
+                                        src="{{ MEDIA_URL }}{{ bots.picture.url }}" alt=""></a></td>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     {% endblock %}
 </section>

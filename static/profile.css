@@ -44,6 +44,7 @@ section {
 img {
     max-width: 100%;
 }
+
 .section__one {
     border-radius: 10px;
     width: 80%;
@@ -85,10 +86,17 @@ img {
 
 .table_one {
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
     flex-basis: max-content;
 }
 
-
+.medal {
+    width: 20%;
+}
+.medal_2 {
+    width: 25%;
+}
 .table_one td {
     text-align: center;
     background: #101010;
@@ -103,6 +111,7 @@ img {
     width: 100%;
     padding-top: 2vw;
 }
+
 .table_two td {
     text-align: center;
     color: white;
@@ -118,6 +127,7 @@ img {
     height: 2vw;
     text-align: center;
 }
- #w {
-     margin-right: 3vw;
- }
+
+#w {
+    margin-right: 3vw;
+}

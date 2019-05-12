@@ -6,36 +6,11 @@
                 <input id="num_input" type="text" placeholder="Это число показывает..."></div>
             <div class="numbers">
                 <table class="numbers__table">
-                    <tr>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
+                    {% for num in nums %}
+                        <tr>
+                            <td>{{ num.number }}</td>
+                        </tr>
+                    {% endfor %}
 
                 </table>
             </div>
