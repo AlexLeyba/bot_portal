@@ -143,7 +143,10 @@ class ButtonsView(View):
 class GetNumber(View):
     def get(self, request, pk):
         but = Buttons.objects.get(id=pk)
-        but.number = 1
+        if but.number == 0:
+            but.number += 1
+        elif but.number == 1:
+            but.number -= 1
         but.save()
         return redirect("numbers")
 

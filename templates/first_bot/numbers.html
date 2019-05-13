@@ -3,16 +3,14 @@
     <div class="border__buttons">
         <div class="content">
             <div class="num__h1"><h1>Страница с числами</h1>
-                <input id="num_input" type="text" placeholder="Это число показывает..."></div>
+                <input id="num_input" type="text" placeholder="Это число показывает...">
+            </div>
             <div class="numbers">
-                <table class="numbers__table">
-                    {% for num in nums %}
-                        <tr>
-                            <td>{{ num.number }}</td>
-                        </tr>
-                    {% endfor %}
-
-                </table>
+                {% for num in nums %}
+                    <div class="nums">
+                        <p>{{ num.number }}</p>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>

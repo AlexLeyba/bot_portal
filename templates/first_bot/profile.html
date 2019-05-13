@@ -8,61 +8,64 @@
     <title>Profile</title>
 </head>
 <body>
-<section>
-    {% block content %}
-        <div class="section__one">
-            {% if profile.photo %}
-                <img src="{{ MEDIA_URL }}{{ profile.photo.url }}" alt="">
-            {% endif %}
-            <ul>
-                <li><p>Имя: {{ profile.name }}</p></li>
-                <li><p>Телефон: {{ profile.phone }}</p></li>
-                <li><p>Адрес: {{ profile.address }}</p></li>
-                <li><p>О себе: {{ profile.about }}</p></li>
-            </ul>
-        </div>
-        <div class="section__two">
-            <div class="bottom_menu">
-                <a class="menu__item" id="w" href="{% url 'edit' pk=profile.id %}">Редактировать</a>
-                <a class="menu__item" href="{% url 'addbot' %}">Добавить бота</a>
-                <a class="menu__item" id="w" href="{% url 'addmistake' %}">Добавить ошибку</a>
-                <a class="menu__item" href="{% url 'mistake' %}">Последние ошибки</a>
-                <a class="menu__item" id="w" href="{% url 'buttons' %}">Кнопки</a>
-                <a class="menu__item" href="{% url 'numbers' %}">Числа</a>
+<div class="all">
+    <section>
+        {% block content %}
+            <div class="section__one">
+                {% if profile.photo %}
+                    <img src="{{ MEDIA_URL }}{{ profile.photo.url }}" alt="">
+                {% endif %}
+                <ul>
+                    <li><p>Имя: {{ profile.name }}</p></li>
+                    <li><p>Телефон: {{ profile.phone }}</p></li>
+                    <li><p>Адрес: {{ profile.address }}</p></li>
+                    <li><p>О себе: {{ profile.about }}</p></li>
+                </ul>
             </div>
-            <div class="table_one">
-                {% for medals in medal %}
-                    {% if medals.picture %}
-                        <div class="medal">
-                            <a href="#"><img src="{{ MEDIA_URL }}{{ medals.picture.url }}" alt=""></a>
+            <div class="section__two">
+                <div class="bottom_menu">
+                    <a class="menu__item" id="w" href="{% url 'edit' pk=profile.id %}">Редактировать</a>
+                    <a class="menu__item" href="{% url 'addbot' %}">Добавить бота</a>
+                    <a class="menu__item" id="w" href="{% url 'addmistake' %}">Добавить ошибку</a>
+                    <a class="menu__item" href="{% url 'mistake' %}">Последние ошибки</a>
+                    <a class="menu__item" id="w" href="{% url 'buttons' %}">Кнопки</a>
+                    <a class="menu__item" href="{% url 'numbers' %}">Числа</a>
+                </div>
+                <div class="table_one">
+                    {% for medals in medal %}
+                        {% if medals.picture %}
+                            <div class="medal">
+                                <a href="#"><img src="{{ MEDIA_URL }}{{ medals.picture.url }}" alt=""></a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="table_two">
+                    {% for bots in bot %}
+                        <div class="medal_2">
+                            <div id="name__bot">
+                                <p class="text">{{ bots.name }}</p>
+                            </div>
+                            <div>
+                                {% if bots.picture %}
+                                    <a href="{% url 'bot' slug=bots.slug %}"><img
+                                            src="{{ MEDIA_URL }}{{ bots.picture.url }}" alt=""></a>
+                                {% endif %}
+                            </div>
                         </div>
-                    {% endif %}
-                {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
-            <div class="table_one">
-                {% for bots in bot %}
-                    <div class="medal_2">
-                        <div>
-                            {{ bots.name }}
-                        </div>
-                        <div>
-                            {% if bots.picture %}
-                                <a href="{% url 'bot' slug=bots.slug %}"><img
-                                        src="{{ MEDIA_URL }}{{ bots.picture.url }}" alt=""></a></td>
-                            {% endif %}
-                        </div>
-                    </div>
-                {% endfor %}
+        {% endblock %}
+    </section>
+    <footer>
+        <div class="container">
+            <div class="foo">
+                <a href="/">Главная</a>
             </div>
         </div>
-    {% endblock %}
-</section>
-<footer>
-    <div class="container">
-        <div class="foo">
-            <a href="/">Главная</a>
-        </div>
-    </div>
-</footer>
+    </footer>
+</div>
 </body>
+
 </html>

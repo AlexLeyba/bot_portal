@@ -25,3 +25,4 @@ function incrementValue3() {
     value++;
     document.getElementById('id_notapplicable').value = value;
 }
+
