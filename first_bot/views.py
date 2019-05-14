@@ -36,7 +36,7 @@ class NewsSave(CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         form.save()
-        return redirect('/news/')
+        return redirect('/newsform/')
 
     @staticmethod
     def success_url():
@@ -66,7 +66,7 @@ class NewsSave2(View):
             news.neutral += c
             news.notapplicable += d
             news.save()
-            return HttpResponseRedirect('/news/')
+            return HttpResponseRedirect('/newsform2/')
 
 
 class EditProfile(LoginRequiredMixin, UpdateView):
